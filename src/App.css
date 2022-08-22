@@ -1,0 +1,10 @@
+.App {
+    max-width: 700px;
+margin: 0 auto;
+}
+footer {
+    text-align: center;
+    font-size: 12px;
+    color: rgb(135, 135,  135);
+    margin-top: 10px;
+}
