@@ -1,16 +1,16 @@
 import React, { useState } from "react";
+import FormattedDate from "./FormattedDate";
 import axios from "axios";
 import "./Weather.css";
 
 export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
   function handleResponse(response) {
-    console.log(response.data)
     setWeatherData({
       ready: true,
       temperature: response.data.main.temp,
       city: response.data.name,
-      date: `Sunday 12:00`,
+      date: new Date(response.data.dt * 1000),
       wind: response.data.wind.speed,
       humidity: response.data.main.humidity,
       description: response.data.weather[0].main,
@@ -45,7 +45,7 @@ export default function Weather(props) {
             />
           </div>
           <div className="col temperature">
-            <p> <span className="number">{Math.round(weatherData.temperature)}</span> <span className="degrees"><a href="#" className="degress">ºC</a> | <a href="#" className="fahrenheit">ºF</a></span></p>
+            <p> <span className="number">{Math.round(weatherData.temperature)}</span> <span className="degrees"><a href="www.shecodes.io" className="degress">ºC</a> | <a href="www.shecodes.io" className="fahrenheit">ºF</a></span></p>
           </div>
           <div className="col characteristics">
             <ul>
@@ -56,7 +56,9 @@ export default function Weather(props) {
           <div className="col city text-end">
             <h1>{weatherData.city}</h1>
             <ul>
-              <li>{weatherData.date}</li>
+              <li>
+                <FormattedDate date={weatherData.date} />
+              </li>
               <li>{weatherData.description}</li>
             </ul>
           </div>
