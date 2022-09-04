@@ -7,7 +7,7 @@ export default function WeatherInfo(props) {
     <div className="row weather-row">
     <div className="col image">
       <img
-        src="https://ssl.gstatic.com/onebox/weather/64/sunny.png"
+        src={props.date.icon}
         alt={props.date.description}
       />
     </div>
