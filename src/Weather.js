@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import FormattedDate from "./FormattedDate";
+import WeatherInfo from "./WeatherInfo";
 import axios from "axios";
 import "./Weather.css";
 
@@ -37,32 +37,8 @@ export default function Weather(props) {
             </div>
           </div>
         </form>
-        <div className="row weather-row">
-          <div className="col image">
-            <img
-              src="https://ssl.gstatic.com/onebox/weather/64/sunny.png"
-              alt={weatherData.description}
-            />
-          </div>
-          <div className="col temperature">
-            <p> <span className="number">{Math.round(weatherData.temperature)}</span> <span className="degrees"><a href="www.shecodes.io" className="degress">ºC</a> | <a href="www.shecodes.io" className="fahrenheit">ºF</a></span></p>
-          </div>
-          <div className="col characteristics">
-            <ul>
-              <li>Humidity: {weatherData.humidity} %</li>
-              <li>Wind: {Math.round(weatherData.wind)} m/s</li>
-            </ul>
-          </div>
-          <div className="col city text-end">
-            <h1>{weatherData.city}</h1>
-            <ul>
-              <li>
-                <FormattedDate date={weatherData.date} />
-              </li>
-              <li>{weatherData.description}</li>
-            </ul>
-          </div>
-        </div>
+        <WeatherInfo date={weatherData} />
+
         </div>
     );
   } else {
