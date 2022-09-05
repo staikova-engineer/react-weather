@@ -39,7 +39,7 @@
   color: #202124;
 }
 
-.Weather .temperature .degrees {
+.Weather .temperature .units {
   position: relative;
   top: -25px;
 }
