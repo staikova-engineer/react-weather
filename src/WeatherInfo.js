@@ -1,35 +1,45 @@
 import React from "react";
 import FormattedDate from "./FormattedDate";
+import WeatherIcon from "./WeatherIcon";
 
 export default function WeatherInfo(props) {
-    return (
+  return (
     <div className="WeatherInfo">
-    <div className="row weather-row">
-    <div className="col image">
-      <img
-        src={props.date.icon}
-        alt={props.date.description}
-      />
+      <div className="row weather-row">
+        <WeatherIcon code={props.date.icon} />
+        <div className="col temperature">
+          <p>
+            {" "}
+            <span className="number">
+              {Math.round(props.date.temperature)}
+            </span>{" "}
+            <span className="degrees">
+              <a href="www.shecodes.io" className="degress">
+                ºC
+              </a>{" "}
+              |{" "}
+              <a href="www.shecodes.io" className="fahrenheit">
+                ºF
+              </a>
+            </span>
+          </p>
+        </div>
+        <div className="col characteristics">
+          <ul>
+            <li>Humidity: {props.date.humidity} %</li>
+            <li>Wind: {Math.round(props.date.wind)} m/s</li>
+          </ul>
+        </div>
+        <div className="col city text-end">
+          <h1>{props.date.city}</h1>
+          <ul>
+            <li>
+              <FormattedDate date={props.date.date} />
+            </li>
+            <li>{props.date.description}</li>
+          </ul>
+        </div>
+      </div>
     </div>
-    <div className="col temperature">
-      <p> <span className="number">{Math.round(props.date.temperature)}</span> <span className="degrees"><a href="www.shecodes.io" className="degress">ºC</a> | <a href="www.shecodes.io" className="fahrenheit">ºF</a></span></p>
-    </div>
-    <div className="col characteristics">
-      <ul>
-        <li>Humidity: {props.date.humidity} %</li>
-        <li>Wind: {Math.round(props.date.wind)} m/s</li>
-      </ul>
-    </div>
-    <div className="col city text-end">
-      <h1>{props.date.city}</h1>
-      <ul>
-        <li>
-          <FormattedDate date={props.date.date} />
-        </li>
-        <li>{props.date.description}</li>
-      </ul>
-    </div>
-  </div>
-  </div>
-  )
+  );
 }
