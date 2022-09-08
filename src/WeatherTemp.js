@@ -16,7 +16,7 @@ export default function WeatherTemp(props) {
   if (unit === "celsius") {
     return (
       <p className="WeatherTemp">
-        <span className="number">{Math.round(props.celsius)}</span>
+        <span className="number">{Math.round(props.celsius)}</span>{" "}
         <span className="units">
           ºC |{" "}
           <a href="/" className="fahrenheit" onClick={convertToFahrenheit}>
@@ -29,7 +29,7 @@ export default function WeatherTemp(props) {
     let fahrenheit = (props.celsius * 9) / 5 + 32;
     return (
       <p className="WeatherTemp">
-        <span className="number">{Math.round(fahrenheit)}</span>
+        <span className="number">{Math.round(fahrenheit)}</span>{" "}
         <span className="units">
           <a href="/" className="celsius" onClick={convertToCelsius}>
             ºC{" "}
