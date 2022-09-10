@@ -19,13 +19,13 @@ export default function WeatherInfo(props) {
             </div>
           </div>
         </div>
-        <div className="col-4 characteristics">
+        <div className="col-3 characteristics">
           <ul>
             <li>Humidity: {props.date.humidity} %</li>
             <li>Wind: {Math.round(props.date.wind)} m/s</li>
           </ul>
         </div>
-        <div className="col-4 city text-end">
+        <div className="col city text-end">
           <h1>{props.date.city}</h1>
           <ul>
             <li>
